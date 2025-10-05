@@ -55,6 +55,22 @@ php artisan migrate
 Route::passkeys();
 ```
 
+5. Add passkeys plugin to your Filament Panel
+
+Add passkeys to a panel by adding the class to your Filament Panel's plugin() or plugins([]) method.
+
+```php
+use MarcelWeidum\Passkeys\PasskeysPlugin;
+
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            PasskeysPlugin::make(),
+        ])
+}
+```
+
 (Optional) If you want to customize the translations, you can publish the translations by running:
 
 ```bash
