@@ -48,13 +48,13 @@ final class PasskeysPlugin implements Plugin
         FilamentView::registerRenderHook(
             PanelsRenderHook::SIMPLE_PAGE_END,
             fn (): View => view('filament-passkeys::profile'),
-            scopes: EditProfile::class,
+            scopes: $panel->getProfilePage() ?? EditProfile::class,
         );
 
         FilamentView::registerRenderHook(
             PanelsRenderHook::PAGE_END,
             fn (): View => view('filament-passkeys::profile'),
-            scopes: EditProfile::class,
+            scopes: $panel->getProfilePage() ?? EditProfile::class,
         );
 
         Livewire::component('filament-passkeys', LivewirePasskeys::class);
